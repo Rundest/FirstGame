@@ -2895,7 +2895,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 948024181}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.50499886, y: -0.24899994, z: -0.3725015}
+  m_LocalPosition: {x: 1.471, y: -0.24899994, z: 0.568}
   m_LocalScale: {x: 0.011066998, y: 0.042776342, z: 0.12786998}
   m_Children: []
   m_Father: {fileID: 628066524}
@@ -2925,7 +2925,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 30, y: 1, z: 1}
+  m_Size: {x: 30, y: 12.3, z: 2.53}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &948024185
 MeshRenderer:
@@ -8476,7 +8476,7 @@ MonoBehaviour:
   - {fileID: 1247166160}
   - {fileID: 1374153667}
   CoinCounter: {fileID: 2113207431}
-  CoinAmount: 0
+  CoinAmount: 127
 --- !u!65 &2135282293
 BoxCollider:
   m_ObjectHideFlags: 0

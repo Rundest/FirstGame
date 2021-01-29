@@ -11,7 +11,7 @@ public class Enemy : MonoBehaviour
     public Transform target;
     NavMeshAgent agent;
 
-    public LifeStatement lifeStatement;
+    public LifeStatement lifeStatement = LifeStatement.IsAlive;
     public enum LifeStatement
     {
         IsAlive,

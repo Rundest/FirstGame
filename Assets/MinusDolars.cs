@@ -1,20 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class MinusDolars : MonoBehaviour
 {
     public EnemyGameManager enemyGameManager;
     MinusDolars minusDolars;
 
-    private void Start()
-    {
-        enemyGameManager = GetComponent<EnemyGameManager>();
-    }
-
     private void Update()
     {
-        if(enemyGameManager == null)
+        if (enemyGameManager == null)
         {
             Debug.Log("NULL");
             minusDolars.enemyGameManager.Equals(true);
@@ -23,10 +16,8 @@ public class MinusDolars : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            Debug.Log("Clicked!");  
-            enemyGameManager.CoinAmount -= 200;
-        }
+        if (!Input.GetKeyDown(KeyCode.E)) return;
+        if (enemyGameManager.GetCoinAmount() < 200) return;
+        enemyGameManager.DecreaseCoinAmount(200);
     }
-}    
+}

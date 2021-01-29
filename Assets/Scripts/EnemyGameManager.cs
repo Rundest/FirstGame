@@ -1,39 +1,37 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class EnemyGameManager : MonoBehaviour
 {
-    public List<Enemy> Enemys = new List<Enemy>();
-    Enemy enemyscript;
-
-    public Text CoinCounter;
-    [HideInInspector]
-    public int CoinAmount;
+    [SerializeField] private List<Enemy> Enemys;
+    [SerializeField] private  Text CoinCounter;
+    [SerializeField] private int CoinAmount;
 
     // Update is called once per frame
     void Update()
     {
         CoinCounter.text = CoinAmount.ToString();
 
-        Enemys.Equals(enemyscript);
-
-        foreach (Enemy i in Enemys)
+        for (int i = 0; i < Enemys.Count; i++)
         {
-            if (i.health <= 0)
-            {
-                Enemys.Remove(i);
-                i.lifeStatement = Enemy.LifeStatement.IsDead;
-                CoinAmount += 100;
-                Debug.Log(i.lifeStatement = i.lifeStatement = Enemy.LifeStatement.IsDead);
-            }
-            else
-            {
-                i.lifeStatement = Enemy.LifeStatement.IsAlive;
-                Debug.Log(i.lifeStatement = Enemy.LifeStatement.IsAlive);
-            }
+            if (Enemys[i].health > 0) continue;
+            Enemys[i].lifeStatement = Enemy.LifeStatement.IsDead;
+            CoinAmount += 100;
+            Enemys.RemoveAt(i);
         }
+    }
 
+    public void DecreaseCoinAmount(int _amount)
+    {
+        if (CoinAmount <= _amount)
+            CoinAmount = 0;
+        else
+            CoinAmount -= _amount;
+    }
+
+    public int GetCoinAmount()
+    {
+        return CoinAmount;
     }
 }
